@@ -1,2 +1,2 @@
-# wordpress-1st-plugin
-for creating  a basic wordpress plugin
+# wordpress-plugin-dev
+for developing wordpress plugins
