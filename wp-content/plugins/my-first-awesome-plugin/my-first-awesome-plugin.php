@@ -21,12 +21,14 @@ function mfap_custom_btn_n_msg_shortcode($atts) {
 }
 add_shortcode('mfap_custom_btn_n_msg', 'mfap_custom_btn_n_msg_shortcode');
 
+
 // Enqueue scripts and styles with a prefixed function name
 function mfap_custom_btn_n_msg_assets() {
     wp_enqueue_style('mfap-custom-btn-n-msg-styles', plugin_dir_url(__FILE__) . 'css/custom-btn-n-msg-styles.css');
     wp_enqueue_script('mfap-custom-btn-n-msg-script', plugin_dir_url(__FILE__) . 'js/custom-btn-n-msg-script.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'mfap_custom_btn_n_msg_assets');
+
 
 // Add button to homepage with prefixed function names
 function mfap_add_custom_btn_n_msg_to_homepage() {
@@ -35,6 +37,7 @@ function mfap_add_custom_btn_n_msg_to_homepage() {
         add_filter('the_content', 'mfap_prepend_custom_btn_n_msg');
     }
 }
+
 
 function mfap_prepend_custom_btn_n_msg($content) {
     $button = do_shortcode('[mfap_custom_btn_n_msg text="Learn More" url="https://example.com"]');
