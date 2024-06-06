@@ -1,0 +1,19 @@
+.mfap-custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0073aa;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mfap-custom-button:hover {
+    background-color: #005177;
+}
+
+#mfap-message {
+    display: none;
+    margin-top: 10px;
+    color: #0073aa;
+}
