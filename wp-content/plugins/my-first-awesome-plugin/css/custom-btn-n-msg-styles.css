@@ -1,6 +1,10 @@
 .mfap-custom-button {
-    display: inline-block;
+    display: block;
     padding: 10px 20px;
+    margin-bottom: 20px;
+    margin-left:auto;
+    margin-right: auto;
+    width: 100px;
     color: #fff;
     background-color: #0073aa;
     text-decoration: none;
@@ -15,5 +19,6 @@
 #mfap-message {
     display: none;
     margin-top: 10px;
+    text-align: center;
     color: #0073aa;
 }

@@ -14,7 +14,7 @@ function mfap_custom_btn_n_msg_shortcode($atts) {
             'url' => '#'
         ), $atts );
 
-    $output = '<a href="javascript:void(0);" class="mfap-custom-button" onclick="showMessage()">' . esc_html($attributes['text']) . '</a>';
+    $output = '<a href="javascript:void(0);" class="mfap-custom-button" onclick="mfap_showMessage()">' . esc_html($attributes['text']) . '</a>';
     $output .= '<div id="mfap-message" style="display:none; margin-top:10px;">Oh.. you clicked me.</div>';
 
     return $output;
@@ -29,19 +29,19 @@ function mfap_custom_btn_n_msg_assets() {
 }
 add_action('wp_enqueue_scripts', 'mfap_custom_btn_n_msg_assets');
 
+function mfap_prepend_custom_btn_n_msg() {
+    echo do_shortcode('[mfap_custom_btn_n_msg]');
+}
+
 
 // Add button to homepage with prefixed function names
 function mfap_add_custom_btn_n_msg_to_homepage() {
-    if (is_front_page()) {
+    if (is_shop() || is_front_page()) {
         // Append the button shortcode to the homepage content
-        add_filter('the_content', 'mfap_prepend_custom_btn_n_msg');
+        add_filter('storefront_header', 'mfap_prepend_custom_btn_n_msg');
     }
 }
 
 
-function mfap_prepend_custom_btn_n_msg($content) {
-    $button = do_shortcode('[mfap_custom_btn_n_msg text="Learn More" url="https://example.com"]');
-    return $button . $content;
-}
 
 add_action('wp', 'mfap_add_custom_btn_n_msg_to_homepage');

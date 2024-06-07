@@ -1,5 +1,6 @@
-const mpaf_showMessage = () => {
-    var messageDiv = document.getElementById('mpaf-message');
+// Function to show the message once the button is clicked
+const mfap_showMessage = () => {
+    var messageDiv = document.getElementById('mfap-message');
     messageDiv.style.display = 'block';
 
     setTimeout(() => {
