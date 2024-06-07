@@ -7,13 +7,13 @@ Author: T Z
 */
 
 
-class MFAP_ADD_CUSTOM_BTN_N_MSG_TO_HOMEPAGE {
+class MFAP_My_First_Awesome_Plugin {
     
     // 
     function __construct() {
-        add_shortcode('custom_btn_n_msg', 'custom_btn_n_msg_shortcode');
-        add_action('wp_enqueue_scripts', 'custom_btn_n_msg_assets');
-        add_action('wp', 'add_custom_btn_n_msg_to_homepage');
+        add_shortcode('custom_btn_n_msg', array($this, 'custom_btn_n_msg_shortcode'));
+        add_action('wp_enqueue_scripts', array($this, 'custom_btn_n_msg_assets'));
+        add_action('wp', array($this, 'add_custom_btn_n_msg_to_homepage'));
     }
 
 
@@ -27,8 +27,8 @@ class MFAP_ADD_CUSTOM_BTN_N_MSG_TO_HOMEPAGE {
             ), $atts );
 
         // Create the button with an onclick event to show the message
-        $output = '<a href="javascript:void(0);" class="custom-button" onclick="mfap_showMessage()">' . esc_html($attributes['text']) . '</a>';
-        $output .= '<div id="message" style="display:none; margin-top:10px;">&#x2764;&#xFE0F; Oh.. you clicked me &#x2764;&#xFE0F;</div>';
+        $output = '<a href="javascript:void(0);" class="mfap-custom-button" onclick="mfap_showMessage()">' . esc_html($attributes['text']) . '</a>';
+        $output .= '<div id="mfap-message" style="display:none; margin-top:10px;">&#x2764;&#xFE0F; Oh.. you clicked me &#x2764;&#xFE0F;</div>';
 
         return $output;
     }
@@ -41,7 +41,7 @@ class MFAP_ADD_CUSTOM_BTN_N_MSG_TO_HOMEPAGE {
     }
 
 
-        // Output the shortcode
+    // Output the shortcode
     function prepend_custom_btn_n_msg() {
         echo do_shortcode('[custom_btn_n_msg]');
     }
@@ -51,10 +51,12 @@ class MFAP_ADD_CUSTOM_BTN_N_MSG_TO_HOMEPAGE {
     function add_custom_btn_n_msg_to_homepage() {
         if (is_shop() || is_front_page()) {
             // Append the button shortcode to the homepage header
-            add_filter('storefront_header', 'prepend_custom_btn_n_msg');
+            add_filter('storefront_header', array($this, 'prepend_custom_btn_n_msg'));
         }
     }
 }
+
+new MFAP_My_First_Awesome_Plugin();
 
 
 
