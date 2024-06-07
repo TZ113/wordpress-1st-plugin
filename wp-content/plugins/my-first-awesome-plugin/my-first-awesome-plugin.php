@@ -56,6 +56,8 @@ class MFAP_My_First_Awesome_Plugin {
     }
 }
 
+
+// Create an instance of the class
 new MFAP_My_First_Awesome_Plugin();
 
 
