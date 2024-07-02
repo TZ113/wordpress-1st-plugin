@@ -12,8 +12,8 @@ All function names are prefixed with `mfap`, short for "my first awesome plugin"
 
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 // Register the shortcode
