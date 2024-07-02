@@ -10,6 +10,12 @@ Author: T Z
 All function names are prefixed with `mfap`, short for "my first awesome plugin" to avoid conflicts with other plugins
 */
 
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register the shortcode
 function mfap_custom_btn_n_msg_shortcode($atts) {
     // Define default attributes for the shortcode
