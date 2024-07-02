@@ -1,6 +1,7 @@
 <?php
 /*
 Plugin Name: My First Awesome Plugin
+Plugin URI: http://example.com/my-awesome-first-plugin
 Description: Adds a custom button to the homepage and displays a message once clicked.
 Version: 1.0
 Author: T Z
@@ -15,6 +16,22 @@ All function names are prefixed with `mfap`, short for "my first awesome plugin"
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+// This code runs during plugin activation
+function activate_my_first_awesome_plugin() {
+   
+}
+
+
+// This code runs during plugin deactivation
+function deactivate_my_first_awesome_plugin() {
+
+}
+
+
+register_activation_hook(__FILE__, "activate_my_first_awesome_plugin");
+register_deactivation_hook(__FILE__, "deactivate_my_first_awesome_plugin");
+
 
 // Register the shortcode
 function mfap_custom_btn_n_msg_shortcode($atts) {
